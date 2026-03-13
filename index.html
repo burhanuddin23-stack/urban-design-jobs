@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maria's Marketing Internship Compass</title>
+    <meta
+      name="description"
+      content="A simple internship search website for marketing and creative agencies in Paris and Luxembourg."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Internship Finder for Maria</p>
+          <h1>Marketing studios in Paris and Luxembourg, kept simple.</h1>
+          <p class="intro">
+            A personal shortlist of agencies, direct hiring pages, and a lightweight alert system
+            for new firms or fresh opportunities. Curated for internship-style applications and
+            early career outreach.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary-button" href="#hiring">See open applications</a>
+            <a class="button ghost-button" href="#alerts">Set alerts</a>
+          </div>
+
+          <dl class="stats-grid">
+            <div class="stat-card">
+              <dt>Open routes</dt>
+              <dd id="openRouteCount">0</dd>
+            </div>
+            <div class="stat-card">
+              <dt>Agency directory</dt>
+              <dd id="directoryCount">0</dd>
+            </div>
+            <div class="stat-card">
+              <dt>Locations</dt>
+              <dd>Paris + Luxembourg</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="panel-label">How to use this</p>
+          <ol>
+            <li>Start with the active opportunities section.</li>
+            <li>Open the hiring page or application email directly from each card.</li>
+            <li>Use alerts to track newly added agencies and new opportunity entries.</li>
+          </ol>
+          <div class="curation-note">
+            <span>Curated</span>
+            <strong>13 March 2026</strong>
+          </div>
+        </aside>
+      </header>
+
+      <main class="content-grid">
+        <section id="alerts" class="surface alert-panel">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Alert system</p>
+              <h2>Keep track without overcomplicating it.</h2>
+            </div>
+            <div class="section-actions">
+              <button id="refreshFeedButton" class="button ghost-button" type="button">
+                Refresh live feed
+              </button>
+              <button id="markAlertsReadButton" class="button secondary-button" type="button">
+                Mark alerts reviewed
+              </button>
+            </div>
+          </div>
+
+          <div class="sync-strip">
+            <span id="syncState">Loading live data...</span>
+            <span id="feedTimestamp">Feed timestamp pending</span>
+          </div>
+
+          <div class="alert-controls">
+            <label class="toggle-card">
+              <input id="notificationsToggle" type="checkbox" />
+              <span>Enable browser notifications</span>
+            </label>
+            <label class="toggle-card">
+              <input id="watchParisToggle" type="checkbox" checked />
+              <span>Watch Paris agencies</span>
+            </label>
+            <label class="toggle-card">
+              <input id="watchLuxembourgToggle" type="checkbox" checked />
+              <span>Watch Luxembourg agencies</span>
+            </label>
+            <label class="toggle-card">
+              <input id="watchHiringToggle" type="checkbox" checked />
+              <span>Watch active opportunities</span>
+            </label>
+            <label class="toggle-card">
+              <input id="watchDirectoryToggle" type="checkbox" checked />
+              <span>Watch directory additions</span>
+            </label>
+          </div>
+
+          <div class="alert-summary">
+            <div>
+              <span class="summary-label">Unread alerts</span>
+              <strong id="unreadAlertCount">0</strong>
+            </div>
+            <p id="alertStatusText">
+              Alerts appear here when this shortlist gets new agencies or new open application
+              routes.
+            </p>
+          </div>
+
+          <div id="alertFeed" class="alert-feed empty-state">
+            <p>No alerts yet. When this list is updated, fresh entries will appear here.</p>
+          </div>
+        </section>
+
+        <aside class="surface quote-panel">
+          <div class="section-head compact">
+            <div>
+              <p class="section-kicker">Momentum</p>
+              <h2>Keep going, Maria.</h2>
+            </div>
+          </div>
+          <div id="featuredQuote" class="featured-quote"></div>
+          <div id="quoteRail" class="quote-rail"></div>
+        </aside>
+
+        <section id="hiring" class="surface section-panel">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Active opportunities</p>
+              <h2>Internship-friendly openings and open application routes.</h2>
+            </div>
+            <p class="section-meta">
+              Direct links to careers pages, application forms, or recruitment contacts.
+            </p>
+          </div>
+
+          <div class="filters">
+            <label>
+              City
+              <select id="cityFilter">
+                <option value="all">All locations</option>
+                <option value="Paris">Paris</option>
+                <option value="Luxembourg">Luxembourg</option>
+              </select>
+            </label>
+            <label>
+              Focus
+              <select id="specialtyFilter">
+                <option value="all">All disciplines</option>
+                <option value="Branding">Branding</option>
+                <option value="Creative">Creative</option>
+                <option value="Digital">Digital</option>
+                <option value="PR">PR</option>
+                <option value="Social">Social</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="hiringGrid" class="card-grid"></div>
+        </section>
+
+        <section id="directory" class="surface section-panel">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Agency directory</p>
+              <h2>Existing firms in and around the same market.</h2>
+            </div>
+            <p class="section-meta">
+              Separate from current opportunities, so Maria can explore targets even when they are
+              not actively posting roles.
+            </p>
+          </div>
+
+          <div id="directoryGrid" class="card-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
