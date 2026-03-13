@@ -3,79 +3,63 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Maria's Marketing Internship Compass</title>
+    <title>Lets look for an internship shall we?</title>
     <meta
       name="description"
-      content="A simple internship search website for marketing and creative agencies in Paris and Luxembourg."
+      content="A compact internship search website for marketing and creative agencies in Paris and Luxembourg."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="page-shell">
-      <header class="hero">
+      <header class="hero surface">
         <div class="hero-copy">
-          <p class="eyebrow">Internship Finder for Maria</p>
-          <h1>Marketing studios in Paris and Luxembourg, kept simple.</h1>
+          <h1>Lets look for an internship shall we?</h1>
           <p class="intro">
-            A personal shortlist of agencies, direct hiring pages, and a lightweight alert system
-            for new firms or fresh opportunities. Curated for internship-style applications and
-            early career outreach.
+            A shorter, cleaner shortlist of marketing firms in Paris and Luxembourg with direct
+            links, live updates, and a simple way to compare more options at once.
           </p>
+        </div>
 
-          <div class="hero-actions">
-            <a class="button primary-button" href="#hiring">See open applications</a>
-            <a class="button ghost-button" href="#alerts">Set alerts</a>
-          </div>
-
+        <div class="hero-meta">
           <dl class="stats-grid">
             <div class="stat-card">
               <dt>Open routes</dt>
               <dd id="openRouteCount">0</dd>
             </div>
             <div class="stat-card">
-              <dt>Agency directory</dt>
+              <dt>Directory</dt>
               <dd id="directoryCount">0</dd>
             </div>
             <div class="stat-card">
               <dt>Locations</dt>
-              <dd>Paris + Luxembourg</dd>
+              <dd>2</dd>
             </div>
           </dl>
-        </div>
 
-        <aside class="hero-panel">
-          <p class="panel-label">How to use this</p>
-          <ol>
-            <li>Start with the active opportunities section.</li>
-            <li>Open the hiring page or application email directly from each card.</li>
-            <li>Use alerts to track newly added agencies and new opportunity entries.</li>
-          </ol>
-          <div class="curation-note">
-            <span>Curated</span>
-            <strong>13 March 2026</strong>
-          </div>
-        </aside>
+          <div id="featuredQuote" class="quote-card"></div>
+        </div>
       </header>
 
       <main class="content-grid">
         <section id="alerts" class="surface alert-panel">
           <div class="section-head">
             <div>
-              <p class="section-kicker">Alert system</p>
-              <h2>Keep track without overcomplicating it.</h2>
+              <p class="section-kicker">Alerts</p>
+              <h2>Keep track.</h2>
             </div>
             <div class="section-actions">
               <button id="refreshFeedButton" class="button ghost-button" type="button">
-                Refresh live feed
+                Refresh
               </button>
               <button id="markAlertsReadButton" class="button secondary-button" type="button">
-                Mark alerts reviewed
+                Mark reviewed
               </button>
             </div>
           </div>
@@ -88,23 +72,23 @@
           <div class="alert-controls">
             <label class="toggle-card">
               <input id="notificationsToggle" type="checkbox" />
-              <span>Enable browser notifications</span>
+              <span>Browser notifications</span>
             </label>
             <label class="toggle-card">
               <input id="watchParisToggle" type="checkbox" checked />
-              <span>Watch Paris agencies</span>
+              <span>Paris</span>
             </label>
             <label class="toggle-card">
               <input id="watchLuxembourgToggle" type="checkbox" checked />
-              <span>Watch Luxembourg agencies</span>
+              <span>Luxembourg</span>
             </label>
             <label class="toggle-card">
               <input id="watchHiringToggle" type="checkbox" checked />
-              <span>Watch active opportunities</span>
+              <span>Opportunities</span>
             </label>
             <label class="toggle-card">
               <input id="watchDirectoryToggle" type="checkbox" checked />
-              <span>Watch directory additions</span>
+              <span>Directory changes</span>
             </label>
           </div>
 
@@ -113,37 +97,21 @@
               <span class="summary-label">Unread alerts</span>
               <strong id="unreadAlertCount">0</strong>
             </div>
-            <p id="alertStatusText">
-              Alerts appear here when this shortlist gets new agencies or new open application
-              routes.
-            </p>
+            <p id="alertStatusText">Alerts appear here when new firms or links are added.</p>
           </div>
 
           <div id="alertFeed" class="alert-feed empty-state">
-            <p>No alerts yet. When this list is updated, fresh entries will appear here.</p>
+            <p>No alerts yet. When the shortlist changes, updates show here.</p>
           </div>
         </section>
-
-        <aside class="surface quote-panel">
-          <div class="section-head compact">
-            <div>
-              <p class="section-kicker">Momentum</p>
-              <h2>Keep going, Maria.</h2>
-            </div>
-          </div>
-          <div id="featuredQuote" class="featured-quote"></div>
-          <div id="quoteRail" class="quote-rail"></div>
-        </aside>
 
         <section id="hiring" class="surface section-panel">
           <div class="section-head">
             <div>
-              <p class="section-kicker">Active opportunities</p>
-              <h2>Internship-friendly openings and open application routes.</h2>
+              <p class="section-kicker">Opportunities</p>
+              <h2>Open applications.</h2>
             </div>
-            <p class="section-meta">
-              Direct links to careers pages, application forms, or recruitment contacts.
-            </p>
+            <p class="section-meta">Compact view, more firms on screen, fewer clicks.</p>
           </div>
 
           <div class="filters">
@@ -168,22 +136,45 @@
             </label>
           </div>
 
-          <div id="hiringGrid" class="card-grid"></div>
+          <div class="table-shell">
+            <table class="firm-table">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>City</th>
+                  <th>Focus</th>
+                  <th>Status</th>
+                  <th>Links</th>
+                </tr>
+              </thead>
+              <tbody id="hiringTableBody"></tbody>
+            </table>
+          </div>
         </section>
 
         <section id="directory" class="surface section-panel">
           <div class="section-head">
             <div>
-              <p class="section-kicker">Agency directory</p>
-              <h2>Existing firms in and around the same market.</h2>
+              <p class="section-kicker">Directory</p>
+              <h2>More firms to explore.</h2>
             </div>
-            <p class="section-meta">
-              Separate from current opportunities, so Maria can explore targets even when they are
-              not actively posting roles.
-            </p>
+            <p class="section-meta">Separate from open roles so the research stays clean.</p>
           </div>
 
-          <div id="directoryGrid" class="card-grid"></div>
+          <div class="table-shell">
+            <table class="firm-table">
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>City</th>
+                  <th>Focus</th>
+                  <th>Hiring note</th>
+                  <th>Links</th>
+                </tr>
+              </thead>
+              <tbody id="directoryTableBody"></tbody>
+            </table>
+          </div>
         </section>
       </main>
     </div>

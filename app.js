@@ -4,8 +4,8 @@ const STORAGE_KEY = "maria-marketing-compass";
 
 const cityFilter = document.getElementById("cityFilter");
 const specialtyFilter = document.getElementById("specialtyFilter");
-const hiringGrid = document.getElementById("hiringGrid");
-const directoryGrid = document.getElementById("directoryGrid");
+const hiringTableBody = document.getElementById("hiringTableBody");
+const directoryTableBody = document.getElementById("directoryTableBody");
 const alertFeed = document.getElementById("alertFeed");
 const alertStatusText = document.getElementById("alertStatusText");
 const unreadAlertCount = document.getElementById("unreadAlertCount");
@@ -19,7 +19,6 @@ const refreshFeedButton = document.getElementById("refreshFeedButton");
 const openRouteCount = document.getElementById("openRouteCount");
 const directoryCount = document.getElementById("directoryCount");
 const featuredQuote = document.getElementById("featuredQuote");
-const quoteRail = document.getElementById("quoteRail");
 const syncState = document.getElementById("syncState");
 const feedTimestamp = document.getElementById("feedTimestamp");
 
@@ -58,30 +57,8 @@ function savePreferences() {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(preferences));
   } catch {
-    // Ignore storage failures and keep the app usable.
+    // Ignore storage failures and keep the page usable.
   }
-}
-
-function getWatchedCities() {
-  return [
-    preferences.watchParis ? "Paris" : null,
-    preferences.watchLuxembourg ? "Luxembourg" : null,
-  ].filter(Boolean);
-}
-
-function matchesFilter(entry) {
-  const cityMatches = cityFilter.value === "all" || entry.city === cityFilter.value;
-  const specialtyMatches =
-    specialtyFilter.value === "all" || entry.focus.includes(specialtyFilter.value);
-  return cityMatches && specialtyMatches;
-}
-
-function formatDate(value) {
-  return new Date(`${value}T12:00:00`).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
 }
 
 function formatDateTime(value) {
@@ -98,56 +75,69 @@ function getLatestAddedOn(entries) {
   return entries.reduce((latest, entry) => (entry.addedOn > latest ? entry.addedOn : latest), "1970-01-01");
 }
 
-function createBadge(label, className = "badge-note") {
-  return `<span class="badge ${className}">${label}</span>`;
+function getWatchedCities() {
+  return [
+    preferences.watchParis ? "Paris" : null,
+    preferences.watchLuxembourg ? "Luxembourg" : null,
+  ].filter(Boolean);
 }
 
-function createCompanyCard(entry, mode) {
-  const badges = [
-    createBadge(entry.city, "badge-note"),
-    ...entry.focus.map((item) => createBadge(item, "badge-note")),
+function matchesFilter(entry) {
+  const cityMatches = cityFilter.value === "all" || entry.city === cityFilter.value;
+  const specialtyMatches =
+    specialtyFilter.value === "all" || entry.focus.includes(specialtyFilter.value);
+  return cityMatches && specialtyMatches;
+}
+
+function renderPills(items) {
+  return `<div class="pill-list">${items.map((item) => `<span class="pill">${item}</span>`).join("")}</div>`;
+}
+
+function buildLinkChips(entry, mode) {
+  const chips = [
+    `<a class="link-chip secondary" href="${entry.siteUrl}" target="_blank" rel="noreferrer">Website</a>`,
+    `<a class="link-chip secondary" href="${entry.sourceUrl}" target="_blank" rel="noreferrer">Source</a>`,
   ];
 
-  if (mode === "hiring") {
-    badges.unshift(createBadge(entry.status, "badge-open"));
-  } else {
-    badges.unshift(createBadge(entry.hiringState, "badge-note"));
+  if (mode === "hiring" && entry.hiringUrl) {
+    chips.unshift(
+      `<a class="link-chip" href="${entry.hiringUrl}" target="_blank" rel="noreferrer">Hiring</a>`,
+    );
   }
 
+  return `<div class="table-links">${chips.join("")}</div>`;
+}
+
+function createHiringRow(entry) {
   return `
-    <article class="company-card fade-up">
-      <div class="company-head">
-        <div>
-          <h3>${entry.name}</h3>
-          <div class="company-location">${entry.city}</div>
-        </div>
-      </div>
-      <div class="badge-stack">${badges.join("")}</div>
-      <p class="card-copy">${entry.summary}</p>
-      <div class="card-meta">
-        ${
-          mode === "hiring"
-            ? `<span>${entry.internshipFit}</span>`
-            : `<span>${entry.hiringState}</span>`
-        }
-        <span>Added to this shortlist on ${formatDate(entry.addedOn)}</span>
-      </div>
-      <div class="card-actions">
-        <a class="button link-button" href="${mode === "hiring" ? entry.hiringUrl : entry.siteUrl}" target="_blank" rel="noreferrer">
-          ${mode === "hiring" ? "Open hiring page" : "Visit website"}
-        </a>
-        <a class="button ghost-button source-link" href="${entry.sourceUrl}" target="_blank" rel="noreferrer">Source</a>
-      </div>
-    </article>
+    <tr>
+      <td data-label="Company">
+        <div class="company-name">${entry.name}</div>
+        <div class="sub-copy">${entry.internshipFit}</div>
+      </td>
+      <td data-label="City">${entry.city}</td>
+      <td data-label="Focus">${renderPills(entry.focus)}</td>
+      <td data-label="Status">
+        <div class="company-name">${entry.status}</div>
+        <div class="sub-copy">${entry.summary}</div>
+      </td>
+      <td data-label="Links">${buildLinkChips(entry, "hiring")}</td>
+    </tr>
   `;
 }
 
-function createQuoteInsert(quote) {
+function createDirectoryRow(entry) {
   return `
-    <article class="quote-card quote-insert fade-up">
-      <blockquote>“${quote.quote}”</blockquote>
-      <footer>${quote.author}</footer>
-    </article>
+    <tr>
+      <td data-label="Company">
+        <div class="company-name">${entry.name}</div>
+        <div class="sub-copy">${entry.summary}</div>
+      </td>
+      <td data-label="City">${entry.city}</td>
+      <td data-label="Focus">${renderPills(entry.focus)}</td>
+      <td data-label="Hiring note">${entry.hiringState}</td>
+      <td data-label="Links">${buildLinkChips(entry, "directory")}</td>
+    </tr>
   `;
 }
 
@@ -155,50 +145,34 @@ function renderHiring() {
   const filtered = state.hiringOpportunities.filter(matchesFilter);
 
   if (filtered.length === 0) {
-    hiringGrid.innerHTML = `
-      <div class="empty-state">
-        <p>No results match this filter yet. Try another city or discipline.</p>
-      </div>
+    hiringTableBody.innerHTML = `
+      <tr>
+        <td colspan="5">
+          <div class="empty-state">No results match this filter yet. Try another city or discipline.</div>
+        </td>
+      </tr>
     `;
     return;
   }
 
-  const quotes = state.motivationalQuotes;
-  const fragments = [];
-
-  filtered.forEach((entry, index) => {
-    fragments.push(createCompanyCard(entry, "hiring"));
-    if (quotes.length > 0 && (index + 1) % 3 === 0) {
-      fragments.push(createQuoteInsert(quotes[index % quotes.length]));
-    }
-  });
-
-  hiringGrid.innerHTML = fragments.join("");
+  hiringTableBody.innerHTML = filtered.map(createHiringRow).join("");
 }
 
 function renderDirectory() {
   const filtered = state.agencyDirectory.filter(matchesFilter);
 
   if (filtered.length === 0) {
-    directoryGrid.innerHTML = `
-      <div class="empty-state">
-        <p>No agencies match this filter yet. Try another city or discipline.</p>
-      </div>
+    directoryTableBody.innerHTML = `
+      <tr>
+        <td colspan="5">
+          <div class="empty-state">No agencies match this filter yet. Try another city or discipline.</div>
+        </td>
+      </tr>
     `;
     return;
   }
 
-  const quotes = state.motivationalQuotes;
-  directoryGrid.innerHTML = filtered
-    .map((entry, index) => {
-      const card = createCompanyCard(entry, "directory");
-      const quote =
-        quotes.length > 0 && (index + 1) % 4 === 0
-          ? createQuoteInsert(quotes[(index + 1) % quotes.length])
-          : "";
-      return `${card}${quote}`;
-    })
-    .join("");
+  directoryTableBody.innerHTML = filtered.map(createDirectoryRow).join("");
 }
 
 function collectAlerts() {
@@ -215,7 +189,7 @@ function collectAlerts() {
           kind: "New opportunity",
           title: `${entry.name} has an active route to apply`,
           meta: `${entry.city} • ${entry.status}`,
-          url: entry.hiringUrl,
+          url: entry.hiringUrl || entry.sourceUrl,
         });
       });
   }
@@ -252,7 +226,7 @@ function maybeSendNotification(alerts) {
     return;
   }
 
-  const notification = new Notification("Maria's Marketing Compass", {
+  const notification = new Notification("Marketing internship updates", {
     body: `${freshAlerts.length} new alert${freshAlerts.length > 1 ? "s" : ""} in Paris / Luxembourg.`,
   });
 
@@ -266,26 +240,22 @@ function renderAlerts() {
   unreadAlertCount.textContent = String(alerts.length);
 
   if (alerts.length === 0) {
-    alertStatusText.textContent =
-      "Everything is reviewed. Check back after the live feed gets another update.";
-    alertStatusText.classList.add("alert-status-good");
+    alertStatusText.textContent = "Everything is reviewed.";
     alertFeed.className = "alert-feed empty-state";
     alertFeed.innerHTML = "<p>No unread alerts right now.</p>";
     return;
   }
 
-  alertStatusText.textContent =
-    "Fresh items are waiting. Review them and then mark the alert center as checked.";
-  alertStatusText.classList.remove("alert-status-good");
+  alertStatusText.textContent = "Fresh items are waiting.";
   alertFeed.className = "alert-feed";
   alertFeed.innerHTML = alerts
     .map(
       (alert) => `
-        <article class="alert-card fade-up">
+        <article class="alert-card">
           <span>${alert.kind}</span>
           <strong>${alert.title}</strong>
-          <p class="card-note">${alert.meta}</p>
-          <a class="button ghost-button" href="${alert.url}" target="_blank" rel="noreferrer">Open link</a>
+          <p class="table-note">${alert.meta}</p>
+          <a class="link-chip secondary" href="${alert.url}" target="_blank" rel="noreferrer">Open</a>
         </article>
       `,
     )
@@ -294,36 +264,18 @@ function renderAlerts() {
   maybeSendNotification(alerts);
 }
 
-function renderQuotes() {
-  const quotes = state.motivationalQuotes;
-
-  if (quotes.length === 0) {
-    featuredQuote.innerHTML = `
-      <p class="section-kicker">Today's reminder</p>
-      <blockquote>“Keep moving. The right door often opens after the next application.”</blockquote>
-      <footer>Unknown</footer>
-    `;
-    quoteRail.innerHTML = "";
-    return;
-  }
+function renderQuote() {
+  const quote =
+    state.motivationalQuotes[0] || {
+      quote: "Keep moving. The right door often opens after the next application.",
+      author: "Unknown",
+    };
 
   featuredQuote.innerHTML = `
-    <p class="section-kicker">Today's reminder</p>
-    <blockquote>“${quotes[0].quote}”</blockquote>
-    <footer>${quotes[0].author}</footer>
+    <p class="section-kicker">One reminder</p>
+    <blockquote>“${quote.quote}”</blockquote>
+    <footer>${quote.author}</footer>
   `;
-
-  quoteRail.innerHTML = quotes
-    .slice(1)
-    .map(
-      (entry) => `
-        <article class="quote-card fade-up">
-          <blockquote>“${entry.quote}”</blockquote>
-          <footer>${entry.author}</footer>
-        </article>
-      `,
-    )
-    .join("");
 }
 
 function renderStats() {
@@ -336,7 +288,7 @@ function renderAll() {
   renderHiring();
   renderDirectory();
   renderAlerts();
-  renderQuotes();
+  renderQuote();
 }
 
 function syncControls() {
@@ -374,7 +326,7 @@ async function fetchLiveData(reason = "sync") {
 
   state.isRefreshing = true;
   refreshFeedButton.disabled = true;
-  setSyncStatus(reason === "manual" ? "Refreshing live feed..." : "Checking for updates...");
+  setSyncStatus(reason === "manual" ? "Refreshing..." : "Checking...");
 
   try {
     const response = await fetch(`${DATA_URL}?ts=${Date.now()}`, { cache: "no-store" });
@@ -387,16 +339,18 @@ async function fetchLiveData(reason = "sync") {
     setSyncStatus("Live feed connected", "sync-live");
   } catch (error) {
     setSyncStatus("Live feed unavailable", "sync-error");
+
     if (state.hiringOpportunities.length === 0) {
-      hiringGrid.innerHTML = `
-        <div class="empty-state">
-          <p>The live data feed could not be loaded. Serve this site from a local or hosted web server so the JSON feed can be fetched.</p>
-        </div>
+      hiringTableBody.innerHTML = `
+        <tr>
+          <td colspan="5">
+            <div class="empty-state">The live data feed could not be loaded.</div>
+          </td>
+        </tr>
       `;
-      directoryGrid.innerHTML = "";
-      alertFeed.className = "alert-feed empty-state";
-      alertFeed.innerHTML = "<p>Alerts will appear once the live feed is reachable.</p>";
+      directoryTableBody.innerHTML = "";
     }
+
     console.error(error);
   } finally {
     state.isRefreshing = false;
