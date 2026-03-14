@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-13T20:45:00+01:00",
+  "updatedAt": "2026-03-14T12:55:41+01:00",
   "hiringOpportunities": [
     {
       "id": "betc-paris",
@@ -13,9 +13,9 @@
       "status": "Open applications",
       "internshipFit": "Good for internships and junior creative profiles.",
       "summary": "BETC runs a dedicated careers hub for its Paris-based creative network and is a strong target for brand, content, and strategy internships.",
-      "hiringUrl": "https://careers.betc.com/",
+      "hiringUrl": "https://betc.teamtailor.com/#jobs",
       "siteUrl": "https://www.betc.com/",
-      "sourceUrl": "https://betc.com/en/contact",
+      "sourceUrl": "https://betc.teamtailor.com/#jobs",
       "addedOn": "2026-03-13"
     },
     {
@@ -30,9 +30,9 @@
       "status": "Teamtailor jobs live",
       "internshipFit": "Worth checking for junior and stage-style roles.",
       "summary": "ROSA PARIS publishes current openings through Teamtailor, which makes it one of the easier Paris agencies to monitor for fresh internship-friendly roles.",
-      "hiringUrl": "https://career.rosaparis.com/jobs",
+      "hiringUrl": "https://rosaparis.teamtailor.com/jobs",
       "siteUrl": "https://www.rosaparis.com/",
-      "sourceUrl": "https://career.rosaparis.com/jobs",
+      "sourceUrl": "https://rosaparis.teamtailor.com/jobs",
       "addedOn": "2026-03-13"
     },
     {
@@ -47,9 +47,9 @@
       "status": "Traineeship route published",
       "internshipFit": "Directly relevant for PR, influence, and communications internships.",
       "summary": "Wellcom keeps a visible recruitment page including traineeship wording, which is useful for internship outreach in communications and digital influence.",
-      "hiringUrl": "https://wellcom.fr/recrutement/",
+      "hiringUrl": "https://wellcom.fr/carrieres/",
       "siteUrl": "https://wellcom.fr/",
-      "sourceUrl": "https://wellcom.fr/recrutement/",
+      "sourceUrl": "https://wellcom.fr/carrieres/",
       "addedOn": "2026-03-13"
     },
     {
@@ -98,9 +98,9 @@
       "status": "Recruitment contact open",
       "internshipFit": "Best for direct outreach with a tailored CV and portfolio.",
       "summary": "Havas Paris keeps a recruitment contact on its official site, which is useful when no exact internship post is visible but the agency is still approachable.",
-      "hiringUrl": "https://www.havasparis.com/contact/",
+      "hiringUrl": "https://www.havasparis.com/",
       "siteUrl": "https://www.havasparis.com/",
-      "sourceUrl": "https://www.havasparis.com/contact/",
+      "sourceUrl": "https://www.havasparis.com/",
       "addedOn": "2026-03-13"
     },
     {
@@ -264,6 +264,21 @@
       "addedOn": "2026-03-13"
     },
     {
+      "id": "tbwa-paris",
+      "name": "TBWA\\Paris",
+      "city": "Paris",
+      "focus": [
+        "Creative",
+        "Branding",
+        "Digital"
+      ],
+      "summary": "Global-network creative agency with a Paris office and active recruitment channel for junior and internship outreach.",
+      "siteUrl": "https://tbwa-paris.com/",
+      "sourceUrl": "https://tbwa-paris.com/nous-rejoindre/",
+      "hiringState": "Recruitment page available",
+      "addedOn": "2026-03-14"
+    },
+    {
       "id": "lola",
       "name": "lola",
       "city": "Luxembourg",
@@ -304,7 +319,7 @@
       ],
       "summary": "Long-standing Luxembourg communications agency with strategy, events, branding, and public relations work.",
       "siteUrl": "https://www.binsfeld.lu/",
-      "sourceUrl": "https://www.binsfeld.lu/",
+      "sourceUrl": "https://binsfeld.lu/contact/",
       "hiringState": "Explore direct outreach",
       "addedOn": "2026-03-11"
     },
@@ -333,10 +348,25 @@
         "Branding"
       ],
       "summary": "Marketing-focused Luxembourg firm suited to performance, digital visibility, and content-oriented work.",
-      "siteUrl": "https://www.ks-marketing.lu/",
-      "sourceUrl": "https://www.ks-marketing.lu/",
+      "siteUrl": "https://www.ksmarketing.lu/",
+      "sourceUrl": "https://www.ksmarketing.lu/contact-us/",
       "hiringState": "Direct outreach likely best",
       "addedOn": "2026-03-09"
+    },
+    {
+      "id": "concept-factory",
+      "name": "Concept Factory",
+      "city": "Luxembourg",
+      "focus": [
+        "Creative",
+        "Branding",
+        "Digital"
+      ],
+      "summary": "Luxembourg creative communication agency with an official jobs page suitable for internship and junior monitoring.",
+      "siteUrl": "https://www.conceptfactory.lu/",
+      "sourceUrl": "https://www.conceptfactory.lu/jobs/",
+      "hiringState": "Jobs page available",
+      "addedOn": "2026-03-14"
     },
     {
       "id": "vanksen",
