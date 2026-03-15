@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-15T08:18:14+01:00",
+  "updatedAt": "2026-03-15T12:02:57+01:00",
   "hiringOpportunities": [
     {
       "id": "betc-paris",
@@ -187,6 +187,40 @@
       "siteUrl": "https://marcelww.com/",
       "sourceUrl": "https://marcelww.com/contact",
       "addedOn": "2026-03-15"
+    },
+    {
+      "id": "branderella-paris",
+      "name": "Branderella",
+      "city": "Paris",
+      "focus": [
+        "Branding",
+        "Creative",
+        "Digital"
+      ],
+      "status": "Open application channel",
+      "internshipFit": "Useful for proactive internship and junior applications with portfolio.",
+      "summary": "Branderella maintains an official careers page inviting direct applications, making it a practical Paris outreach target.",
+      "hiringUrl": "https://www.branderella.fr/careers",
+      "siteUrl": "https://www.branderella.fr/",
+      "sourceUrl": "https://www.branderella.fr/careers",
+      "addedOn": "2026-03-15"
+    },
+    {
+      "id": "sam-young-lux",
+      "name": "SAM&YOUNG",
+      "city": "Luxembourg",
+      "focus": [
+        "Creative",
+        "Digital",
+        "Branding"
+      ],
+      "status": "Careers + contact route live",
+      "internshipFit": "Relevant for direct internship outreach and creative junior applications.",
+      "summary": "SAM&YOUNG publishes official careers and contact pages with a clear application channel, including internship-oriented wording.",
+      "hiringUrl": "https://www.sam-young.com/sy/careers/",
+      "siteUrl": "https://www.sam-young.com/",
+      "sourceUrl": "https://www.sam-young.com/sy/careers/",
+      "addedOn": "2026-03-15"
     }
   ],
   "agencyDirectory": [
@@ -203,21 +237,6 @@
       "siteUrl": "https://www.publicisluxe.com/",
       "sourceUrl": "https://www.publicisluxe.com/contact",
       "hiringState": "Working-at route and contact available",
-      "addedOn": "2026-03-12"
-    },
-    {
-      "id": "buzzman",
-      "name": "Buzzman",
-      "city": "Paris",
-      "focus": [
-        "Creative",
-        "Social",
-        "Branding"
-      ],
-      "summary": "Independent Paris agency known for campaigns blending brand storytelling and social-first thinking.",
-      "siteUrl": "https://www.buzzman.eu/",
-      "sourceUrl": "https://www.buzzman.eu/",
-      "hiringState": "Monitor for future openings",
       "addedOn": "2026-03-12"
     },
     {
@@ -341,21 +360,6 @@
       "addedOn": "2026-03-11"
     },
     {
-      "id": "mikado",
-      "name": "mi[k]do publicis",
-      "city": "Luxembourg",
-      "focus": [
-        "Creative",
-        "Digital",
-        "Branding"
-      ],
-      "summary": "Publicis-linked Luxembourg agency with capabilities in campaigns, design, and digital communications.",
-      "siteUrl": "https://mikado.lu/",
-      "sourceUrl": "https://mikado.lu/",
-      "hiringState": "Check group opportunities",
-      "addedOn": "2026-03-09"
-    },
-    {
       "id": "ks",
       "name": "KS Marketing",
       "city": "Luxembourg",
@@ -413,6 +417,36 @@
       "siteUrl": "https://marcelww.com/",
       "sourceUrl": "https://marcelww.com/contact",
       "hiringState": "Job opportunity contact published",
+      "addedOn": "2026-03-15"
+    },
+    {
+      "id": "we-are-social-paris",
+      "name": "We Are Social France",
+      "city": "Paris",
+      "focus": [
+        "Social",
+        "Creative",
+        "Digital"
+      ],
+      "summary": "Global social-first creative agency with a dedicated Paris office and direct official contact route.",
+      "siteUrl": "https://wearesocial.com/fr/",
+      "sourceUrl": "https://wearesocial.com/fr/nous-contacter/",
+      "hiringState": "Official Paris contact route available",
+      "addedOn": "2026-03-15"
+    },
+    {
+      "id": "sam-young-lux",
+      "name": "SAM&YOUNG",
+      "city": "Luxembourg",
+      "focus": [
+        "Creative",
+        "Branding",
+        "Digital"
+      ],
+      "summary": "Communication agency active in Luxembourg with official careers and contact channels.",
+      "siteUrl": "https://www.sam-young.com/",
+      "sourceUrl": "https://www.sam-young.com/sy/contact/",
+      "hiringState": "Careers and direct contact pages published",
       "addedOn": "2026-03-15"
     }
   ],
