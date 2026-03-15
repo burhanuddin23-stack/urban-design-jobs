@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-15T19:45:00+01:00",
+  "updatedAt": "2026-03-15T19:14:45+00:00",
   "usOpenings": [
     {
       "id": "land-collective-pittsburgh",
@@ -33,7 +33,7 @@
       "fit": "Useful for freshers because the studio explicitly references internships and learning exposure.",
       "summary": "Official internships page makes this one of the clearer Pittsburgh-area practices for emerging applicants.",
       "applyUrl": "https://www.smithgee.com/careers/internships",
-      "siteUrl": "https://www.smithgee.com/",
+      "siteUrl": "https://smithgeestudio.com/",
       "sourceUrl": "https://www.smithgee.com/careers/internships",
       "addedOn": "2026-03-15"
     },
@@ -51,7 +51,7 @@
       "fit": "Strong for portfolio-based fresher applications into larger urban design and planning teams.",
       "summary": "Large multidisciplinary practice with an official careers system and Pittsburgh presence.",
       "applyUrl": "https://perkinseastman.wd5.myworkdayjobs.com/en-US/PerkinsEastmanCareers",
-      "siteUrl": "https://perkinseastman.com/",
+      "siteUrl": "https://www.perkinseastman.com/",
       "sourceUrl": "https://perkinseastman.wd5.myworkdayjobs.com/en-US/PerkinsEastmanCareers",
       "addedOn": "2026-03-15"
     },
@@ -86,9 +86,9 @@
       "status": "Official careers route live",
       "fit": "A strong nearby-state option for freshers interested in civic, campus, and mixed-use urban design work.",
       "summary": "Regional design studio with strong urban design and planning overlap across Ohio and adjacent markets.",
-      "applyUrl": "https://www.mkskstudios.com/careers/",
-      "siteUrl": "https://www.mkskstudios.com/",
-      "sourceUrl": "https://www.mkskstudios.com/careers/",
+      "applyUrl": "https://mkskstudios.com/careers/",
+      "siteUrl": "https://mkskstudios.com/",
+      "sourceUrl": "https://mkskstudios.com/careers/",
       "addedOn": "2026-03-15"
     },
     {
@@ -159,7 +159,7 @@
       "fit": "Useful for a broad fresher search because the site consistently carries graduate and junior routes.",
       "summary": "Large consultancy with recurring early-career and graduate hiring pages relevant to planning and urban design.",
       "applyUrl": "https://stantec.jobs/",
-      "siteUrl": "https://www.stantec.com/",
+      "siteUrl": "https://www.stantec.com/en",
       "sourceUrl": "https://stantec.jobs/",
       "addedOn": "2026-03-15"
     },
@@ -304,9 +304,9 @@
       "status": "Early-careers route live",
       "fit": "Very good for freshers because Arup clearly structures graduate and early-career entry routes.",
       "summary": "Stable official early-careers page covering graduates and emerging talent across urbanism-related teams.",
-      "applyUrl": "https://careers.arup.com/early-careers",
-      "siteUrl": "https://www.arup.com/",
-      "sourceUrl": "https://careers.arup.com/early-careers",
+      "applyUrl": "https://careers.arup.com/earlycareers/home/",
+      "siteUrl": "https://www.arup.com/en-us/",
+      "sourceUrl": "https://careers.arup.com/earlycareers/home/",
       "addedOn": "2026-03-15"
     },
     {
@@ -322,9 +322,9 @@
       "status": "Careers page active",
       "fit": "Strong for graduates because BDP is multidisciplinary and often suitable for planning and urbanism portfolios.",
       "summary": "Official careers hub for a large UK design practice with planning and urban design relevance.",
-      "applyUrl": "https://www.bdp.com/en/careers/",
-      "siteUrl": "https://www.bdp.com/",
-      "sourceUrl": "https://www.bdp.com/en/careers/",
+      "applyUrl": "https://www.bdp.com/us",
+      "siteUrl": "https://www.bdp.com/us",
+      "sourceUrl": "https://www.bdp.com/us",
       "addedOn": "2026-03-15"
     },
     {
@@ -395,7 +395,7 @@
       "fit": "One of the clearest exact fresher matches because the route explicitly references graduate urban design.",
       "summary": "Official job page for a graduate urban designer route in the UK operation.",
       "applyUrl": "https://stantec.jobs/bristol-gbr/graduate-urban-designer-2026/B8FB5C8D5E0D4698A4E8A4F6DB9AFD1A/job/",
-      "siteUrl": "https://www.stantec.com/",
+      "siteUrl": "https://www.stantec.com/en",
       "sourceUrl": "https://stantec.jobs/bristol-gbr/graduate-urban-designer-2026/B8FB5C8D5E0D4698A4E8A4F6DB9AFD1A/job/",
       "addedOn": "2026-03-15"
     },
@@ -430,9 +430,9 @@
       "status": "Early-careers route live",
       "fit": "Useful if your work leans sustainable cities, mobility, and strategic urban systems.",
       "summary": "Official early-careers route for a major European consultancy with city-shaping work.",
-      "applyUrl": "https://www.ramboll.com/careers/early-careers-and-graduates",
+      "applyUrl": "https://www.ramboll.com/careers",
       "siteUrl": "https://www.ramboll.com/",
-      "sourceUrl": "https://www.ramboll.com/careers/early-careers-and-graduates",
+      "sourceUrl": "https://www.ramboll.com/careers",
       "addedOn": "2026-03-15"
     },
     {
@@ -448,9 +448,9 @@
       "status": "Early-careers route live",
       "fit": "Relevant for freshers who want multidisciplinary city and district-scale work inside a large practice.",
       "summary": "Official careers page for early-career applications across a broad urban systems environment.",
-      "applyUrl": "https://burohappold.com/careers/",
-      "siteUrl": "https://burohappold.com/",
-      "sourceUrl": "https://burohappold.com/careers/",
+      "applyUrl": "https://www.burohappold.com/careers/",
+      "siteUrl": "https://www.burohappold.com/",
+      "sourceUrl": "https://www.burohappold.com/careers/",
       "addedOn": "2026-03-15"
     },
     {
@@ -557,8 +557,8 @@
       "summary": "Long-running Pittsburgh practice with planning and public-space relevance.",
       "hiringState": "Directory only",
       "note": "Worth keeping on the radar for outreach and future openings.",
-      "siteUrl": "https://www.epd-pgh.com/",
-      "sourceUrl": "https://www.epd-pgh.com/",
+      "siteUrl": "https://epd-pgh.com/",
+      "sourceUrl": "https://epd-pgh.com/",
       "addedOn": "2026-03-15"
     },
     {
@@ -608,8 +608,8 @@
       "summary": "Urban design and planning studio with strong city and neighbourhood work.",
       "hiringState": "Directory only",
       "note": "Relevant east-coast practice even when the current jobs page is quiet.",
-      "siteUrl": "https://www.interfacestudio.com/",
-      "sourceUrl": "https://www.interfacestudio.com/",
+      "siteUrl": "https://interface-studio.com/",
+      "sourceUrl": "https://interface-studio.com/",
       "addedOn": "2026-03-15"
     },
     {
@@ -727,8 +727,8 @@
       "summary": "Global city-making consultancy with strong public-life and streetscape relevance.",
       "hiringState": "Watch the studio site",
       "note": "Excellent fit for portfolios grounded in people-first urbanism.",
-      "siteUrl": "https://gehlpeople.com/",
-      "sourceUrl": "https://gehlpeople.com/",
+      "siteUrl": "https://www.gehlpeople.com/",
+      "sourceUrl": "https://www.gehlpeople.com/",
       "addedOn": "2026-03-15"
     },
     {
