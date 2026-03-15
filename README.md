@@ -37,3 +37,14 @@ Once the repository is pushed to GitHub:
 3. Push changes to `main`
 
 GitHub will publish the site automatically after each push, which lets you keep editing from your side by updating the repo and pushing again.
+
+## Automation
+
+A scheduled GitHub Actions workflow in `.github/workflows/refresh-shortlist.yml` refreshes `data/marketing-companies.json` once per day and pushes changes automatically.
+
+What it does:
+- checks official URLs for redirects or stable canonical routes
+- updates `updatedAt`
+- commits and pushes only when the data file changed
+
+To activate it, make sure the repo is on GitHub and GitHub Actions is enabled for the repository.
